@@ -11,6 +11,16 @@ function createEmployeeRecord(array = ['','','',0]){
 return obj
 }
 
-function createEmployeeRecords(array){
-    array.forEach(element => {createEmployeeRecord(element)})
+function createEmployeeRecords(arr){
+    let newArray = arr.map(
+        function(array){
+            let employeeRecord = createEmployeeRecord(array)
+            return employeeRecord}
+    )
+    return newArray
 }
+
+function createTimeInEvent(record, date){
+
+}
+
