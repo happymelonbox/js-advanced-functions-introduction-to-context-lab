@@ -21,6 +21,11 @@ function createEmployeeRecords(arr){
 }
 
 function createTimeInEvent(record, date){
-
+    let time = date.split(' ')
+    record.timeInEvents.push({
+        type: 'TimeIn',
+        timeIn: time[1],
+        date: time[0]
+    })
+    return record
 }
-
