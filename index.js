@@ -40,3 +40,14 @@ function createTimeOutEvent(record, date){
     return record
 }
 
+function hoursWorkedOnDate(record, date){
+    let timeInDate = record.timeInEvents.find(function(time){
+        return time.date === date
+    })
+    let timeOutDate = record.timeOutEvents.find(function(time){
+        return time.date === date
+    })
+    let hoursWorked = timeOutDate.hour - timeInDate.hour
+    return hoursWorked
+}
+
