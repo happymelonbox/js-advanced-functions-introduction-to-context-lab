@@ -48,6 +48,20 @@ function hoursWorkedOnDate(record, date){
         return time.date === date
     })
     let hoursWorked = timeOutDate.hour - timeInDate.hour
-    return hoursWorked
+    return hoursWorked/100
 }
 
+function wagesEarnedOnDate(record, date){
+    let hoursWorked = hoursWorkedOnDate(record, date)
+    let payPerHour = record.payPerHour
+    return hoursWorked * payPerHour
+}
+
+function allWagesFor(record){
+    let totalHours = 0
+    let timeIn = record.timeInEvents
+    for (let i = 0; i<timeIn.length; i++){
+        totalHours = totalHours + wagesEarnedOnDate(record, timeIn[i].date)
+    }
+    return totalHours
+}
