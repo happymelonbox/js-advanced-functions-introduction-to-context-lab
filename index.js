@@ -66,13 +66,20 @@ function allWagesFor(record){
     return totalHours
 }
 
-//use reduce & map
-    //   let eligibleDates = employee.timeInEvents.map(function(e){
-    //     return e.date
-    // })
+function findEmployeeByFirstName(srcArray, name){
+    return srcArray.find((record)=>{
+        return record.firstName === name
+    })
+}
 
-    // let payable = eligibleDates.reduce(function(memo, d){
-    //     return memo + wagesEarnedOnDate(employee, d)
-    // }, 0)
-
-    // return payable
+function calculatePayroll(record){
+    let totalWages = []
+    for (let i = 0; i < record.length; i++){
+        let wages = allWagesFor(record[i])
+        totalWages.push(wages)
+    }
+    console.log(totalWages)
+    return totalWages.reduce(function(ac, cv){
+        return ac + cv
+    })
+}
